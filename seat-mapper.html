@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seat Coordinate Picker</title>
+  <style>
+    body { font-family: sans-serif; background: #f2f2f2; }
+    #map-container { position: relative; display: inline-block; }
+    #floorplan { width: 1000px; }
+    .marker {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: rgba(0, 128, 255, 0.5);
+      color: white;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 14px;
+      pointer-events: none;
+    }
+    #output {
+      margin-top: 10px;
+      white-space: pre-wrap;
+      font-family: monospace;
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>🧭 Click anywhere on your floorplan to get seat coordinates</h2>
+  <p>Each click will generate code like: <code>{ id: 101, x: ___, y: ___ }</code></p>
+
+  <div id="map-container">
+    <img id="floorplan" src="floorplan.png" alt="Your Layout" />
+  </div>
+
+  <div id="output"></div>
+
+  <script>
+    let seatId = 1;
+    const output = document.getElementById("output");
+    const container = document.getElementById("map-container");
+
+    container.addEventListener("click", function(event) {
+      const rect = container.getBoundingClientRect();
+      const x = Math.round(event.clientX - rect.left);
+      const y = Math.round(event.clientY - rect.top);
+
+      const marker = document.createElement("div");
+      marker.className = "marker";
+      marker.style.left = (x - 15) + "px";
+      marker.style.top = (y - 15) + "px";
+      marker.textContent = seatId;
+      container.appendChild(marker);
+
+      const line = `{ id: ${seatId}, x: ${x}, y: ${y} },`;
+      output.textContent += line + "\n";
+      seatId++;
+    });
+  </script>
+</body>
+</html>
