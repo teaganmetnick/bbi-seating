@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BBI Logistics Seating Chart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>BBI Logistics - Tampa Seating Chart</h1>
+
+  <div id="viewToggle">
+    <label><input type="checkbox" id="adminToggle" /> Admin Mode</label>
+  </div>
+
+  <div id="legend">
+    <div><span class="seat available"></span> Available</div>
+    <div><span class="seat used"></span> Used</div>
+    <div><span class="seat reserved"></span> Reserved</div>
+  </div>
+
+  <div id="chart"></div>
+
+  <div id="popup" class="hidden">
+    <div id="popupContent"></div>
+    <button id="closePopup">Close</button>
+  </div>
+
+  <script src="seats.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
