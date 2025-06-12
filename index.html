@@ -3,31 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BBI Logistics Seating Chart</title>
+  <title>BBI Seating Chart</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <h1>BBI Logistics - Tampa Seating Chart</h1>
-
-  <div id="viewToggle">
-    <label><input type="checkbox" id="adminToggle" /> Admin Mode</label>
+  <div class="top-bar">
+    <h1>BBI Logistics - Tampa Seating Chart</h1>
+    <button id="toggleView">Switch to Admin View</button>
   </div>
-
   <div id="legend">
-    <div><span class="seat available"></span> Available</div>
-    <div><span class="seat used"></span> Used</div>
-    <div><span class="seat reserved"></span> Reserved</div>
+    <span class="legend-item available">Available</span>
+    <span class="legend-item used">Used</span>
+    <span class="legend-item reserved">Reserved</span>
   </div>
-
-  <div id="chart"></div>
-
+  <div id="floorplan">
+    <img src="floorplan.png" alt="Office Layout" id="layout" />
+    <!-- Seats dynamically added by script.js -->
+  </div>
   <div id="popup" class="hidden">
-    <div id="popupContent"></div>
-    <button id="closePopup">Close</button>
+    <p id="seatLabel"></p>
+    <p id="seatName"></p>
+    <p id="seatTitle"></p>
+    <div id="adminControls" class="hidden">
+      <input type="text" id="nameInput" placeholder="Name"/>
+      <input type="text" id="titleInput" placeholder="Title"/>
+      <select id="statusInput">
+        <option value="available">Available</option>
+        <option value="used">Used</option>
+        <option value="reserved">Reserved</option>
+      </select>
+      <button onclick="saveSeat()">Save</button>
+    </div>
+    <button onclick="closePopup()">Close</button>
   </div>
-
-  <script src="seats.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
