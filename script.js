@@ -198,5 +198,10 @@ layoutImg.addEventListener("click", function (e) {
   const rect = layoutImg.getBoundingClientRect();
   const x = Math.round(e.clientX - rect.left);
   const y = Math.round(e.clientY - rect.top);
-  document.getElementById("click-coords").textContent = `Clicked at: x: ${x}, y: ${y}`;
+
+  const coordBox = document.getElementById("click-coords");
+  coordBox.textContent = `x: ${x}, y: ${y}`;
+  coordBox.style.left = `${e.clientX + 10}px`;
+  coordBox.style.top = `${e.clientY + 10}px`;
+  coordBox.style.display = "block";
 });
