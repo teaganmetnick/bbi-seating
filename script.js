@@ -193,3 +193,10 @@ layoutImg.onload = function () {
   floorplan.style.height = layoutImg.offsetHeight + "px";
   createSeats();
 };
+// Add coordinate click tool
+layoutImg.addEventListener("click", function (e) {
+  const rect = layoutImg.getBoundingClientRect();
+  const x = Math.round(e.clientX - rect.left);
+  const y = Math.round(e.clientY - rect.top);
+  document.getElementById("click-coords").textContent = `Clicked at: x: ${x}, y: ${y}`;
+});
