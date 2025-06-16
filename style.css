@@ -28,15 +28,23 @@ body {
 .used { background: #FF7F7F; }
 .reserved { background: #FFD700; }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 #floorplan {
   position: relative;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
 }
 
 #layout {
   width: 100%;
+  height: 100%;
+  object-fit: cover; 
 }
 
 .seat {
