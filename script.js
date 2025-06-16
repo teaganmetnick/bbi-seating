@@ -56,7 +56,6 @@ const seats = [
   { id: 149, x: 550, y: 480 }
 ];
   // Add more seats here using x/y from the layout image
-];
 
 // Fill with your real assignments
 const people = {
