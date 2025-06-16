@@ -96,6 +96,7 @@ const people = {
   99: { name: "Alison O'Brien", title: "", status: "used" },
   100: { name: "Samantha Bensch", title: "", status: "used" },
   101: { name: "Anna Hopkins", title: "", status: "used" },
+  103: { name: "", title: "", status: "available" },
   104: { name: "Teagan Metnick", title: "IT Support Intern", status: "used" },
   105: { name: "Katie Nichter", title: "", status: "used" },
   108: { name: "Willie Dunham", title: "", status: "used" },
