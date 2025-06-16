@@ -49,11 +49,11 @@ html, body {
 
 .seat {
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   border-radius: 5px;
   text-align: center;
-  line-height: 35px;
+  line-height: 25px;
   font-size: 12px;
   cursor: pointer;
   color: black;
