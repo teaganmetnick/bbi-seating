@@ -199,12 +199,12 @@ layoutImg.addEventListener("click", function (e) {
   const scaleX = layoutImg.naturalWidth / rect.width;
   const scaleY = layoutImg.naturalHeight / rect.height;
 
-  const x = Math.round((e.clientX - rect.left) * scaleX);
-  const y = Math.round((e.clientY - rect.top) * scaleY);
+  const x = Math.round((e.pageX - rect.left - window.scrollX) * scaleX);
+  const y = Math.round((e.pageY - rect.top - window.scrollY) * scaleY);
 
   const coordBox = document.getElementById("click-coords");
   coordBox.textContent = `x: ${x}, y: ${y}`;
-  coordBox.style.left = `${e.clientX + 10}px`;
-  coordBox.style.top = `${e.clientY + 10}px`;
+  coordBox.style.left = `${e.pageX + 10}px`;
+  coordBox.style.top = `${e.pageY + 10}px`;
   coordBox.style.display = "block";
 });
