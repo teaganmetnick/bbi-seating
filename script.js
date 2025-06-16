@@ -187,4 +187,9 @@ document.getElementById("toggleView").onclick = () => {
   document.getElementById("toggleView").innerText = isAdmin ? "Switch to Public View" : "Switch to Admin View";
 };
 
-createSeats();
+const layoutImg = document.getElementById("layout");
+layoutImg.onload = function () {
+  const floorplan = document.getElementById("floorplan");
+  floorplan.style.height = layoutImg.offsetHeight + "px";
+  createSeats();
+};
