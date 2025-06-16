@@ -38,7 +38,6 @@ html, body {
 #floorplan {
   position: relative;
   width: 100%;
-  height: 1000px;
   overflow: auto;
 }
 
