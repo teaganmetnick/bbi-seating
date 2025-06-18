@@ -33,7 +33,7 @@ const seats = [
   { id: 84, x: 650, y: 300 },
   { id: 85, x: 50, y: 360 },
   { id: 88, x: 150, y: 360 },
-  { id: 99, x: 255, y: 1034 },
+  { id: 99, x: .2000, y: 0.6267 },
   { id: 100, x: 285, y: 1034 },
   { id: 101, x: 315, y: 1034 },
   { id: 103, x: 255, y: 1076 },
@@ -131,8 +131,8 @@ function createSeats() {
     div.classList.add(status);
 
     div.innerText = seat.id;
-    div.style.left = seat.x + "px";
-    div.style.top = seat.y + "px";
+    div.style.left = (seat.x * 100) + "%";
+    div.style.top = (seat.y * 100) + "%";
     div.onclick = () => openPopup(seat.id);
 
     container.appendChild(div);
