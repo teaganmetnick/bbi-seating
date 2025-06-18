@@ -44,9 +44,11 @@ html, body {
 
 #layout {
   width: 100%;
+  max-width: 946px;
   height: auto;
   object-fit: contain; 
   display: block;
+  margin: 0 auto;
 }
 
 .seat {
