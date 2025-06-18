@@ -122,6 +122,8 @@ let currentSeatId = null;
 
 function createSeats() {
   const container = document.getElementById("floorplan");
+  const layoutImg = document.getElementById("layout");
+  
   seats.forEach(seat => {
     const div = document.createElement("div");
     div.classList.add("seat");
@@ -131,8 +133,8 @@ function createSeats() {
     div.classList.add(status);
 
     div.innerText = seat.id;
-    div.style.left = (seat.x * 100) + "%";
-    div.style.top = (seat.y * 100) + "%";
+    div.style.left = (seat.x * layoutImg.offsetWidth) + "px";
+    div.style.top = (seat.y * layoutImg.offsetHeight) + "px";
     div.onclick = () => openPopup(seat.id);
 
     container.appendChild(div);
@@ -195,16 +197,16 @@ layoutImg.onload = function () {
 };
 layoutImg.addEventListener("click", function (e) {
   const rect = layoutImg.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
-  const scaleX = layoutImg.naturalWidth / rect.width;
-  const scaleY = layoutImg.naturalHeight / rect.height;
-
-  const x = Math.round((e.pageX - rect.left - window.scrollX) * scaleX);
-  const y = Math.round((e.pageY - rect.top - window.scrollY) * scaleY);
+  // Convert to percent
+  const xPercent = (x / layoutImg.offsetWidth).toFixed(4);
+  const yPercent = (y / layoutImg.offsetHeight).toFixed(4);
 
   const coordBox = document.getElementById("click-coords");
-  coordBox.textContent = `x: ${x}, y: ${y}`;
-  coordBox.style.left = `${e.pageX + 10}px`;
-  coordBox.style.top = `${e.pageY + 10}px`;
+  coordBox.textContent = `x: ${xPercent}, y: ${yPercent}`;
+  coordBox.style.left = `${e.clientX + 10}px`;
+  coordBox.style.top = `${e.clientY + 10}px`;
   coordBox.style.display = "block";
 });
